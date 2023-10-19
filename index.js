@@ -34,12 +34,11 @@ bot.on("message", async (msg) => {
   });
 
   if (msg && msg.web_app_data && msg.web_app_data.data) {
-
     try {
       const data = JSON.parse(msg && msg.web_app_data && msg.web_app_data.data);
 
-      await bot.sendMessage(chatId, "Ваша страна:" + data?.country);
-      await bot.sendMessage(chatId, "Ваша страна:" + data?.street);
+      await bot.sendMessage(chatId, "Ваша страна:" + (data && data.country));
+      await bot.sendMessage(chatId, "Ваша город:" + (data && data.street));
       await bot.sendMessage(chatId, "Спасибо за обратную связь!");
 
       setTimeout(async () => {
@@ -71,7 +70,7 @@ app.post("/web-data", async (req, res) => {
       title: "Не удалось приобрести товар",
       input_message_content: { message_text: "Не удалось приобрести товар" },
     });
-    return res.status(500).json({}); 
+    return res.status(500).json({});
   }
 });
 
