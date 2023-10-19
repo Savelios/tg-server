@@ -33,7 +33,8 @@ bot.on("message", async (msg) => {
     },
   });
 
-  if (msg?.web_app_data?.data) {
+  if (msg && msg.web_app_data && msg.web_app_data.data) {
+
     try {
       const data = JSON.parse(msg?.web_app_data?.data);
 
@@ -70,7 +71,7 @@ app.post("/web-data", async (req, res) => {
       title: "Не удалось приобрести товар",
       input_message_content: { message_text: "Не удалось приобрести товар" },
     });
-    return res.status(500).json({});
+    return res.status(500).json({}); 
   }
 });
 
