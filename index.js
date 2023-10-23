@@ -2,7 +2,7 @@ const TelegramBot = require('node-telegram-bot-api');
 const express = require('express');
 const cors = require('cors');
 
-const token = "6174874145:AAEywdFMAw1A8JobIcBTKZh8bNiKFVfAfiU";
+const token = "6806838194:AAHMauZsPj2FUM2gU13StdmKDtevWBEkM4o";
 const webAppUrl = "https://hackthesky.ru/";
 
 const bot = new TelegramBot(token, {polling: true});
