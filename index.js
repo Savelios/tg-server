@@ -38,8 +38,8 @@ bot.on('message', async (msg) => {
             const data = JSON.parse(msg && msg.web_app_data && msg.web_app_data.data)
             console.log(data)
             await bot.sendMessage(chatId, 'Спасибо за обратную связь!')
-            await bot.sendMessage(chatId, 'Ваша страна: ' + data?.country);
-            await bot.sendMessage(chatId, 'Ваша улица: ' + data?.street);
+            await bot.sendMessage(chatId, 'Ваша страна: ' + (data && data.country));
+            await bot.sendMessage(chatId, 'Ваша улица: ' + (data && data.street));
 
             setTimeout(async () => {
                 await bot.sendMessage(chatId, 'Всю информацию вы получите в этом чате');
